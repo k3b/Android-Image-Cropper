@@ -34,6 +34,8 @@ import com.example.croppersample.R;
 import net.realify.lib.androidimagecropper.CropImage;
 import net.realify.lib.androidimagecropper.CropImageView;
 
+import static net.realify.lib.androidimagecropper.CropImage.CAMERA_CAPTURE_PERMISSIONS_REQUEST_CODE;
+
 public class MainActivity extends AppCompatActivity {
 
   // region: Fields and Consts
@@ -109,23 +111,23 @@ public class MainActivity extends AppCompatActivity {
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
 
-    if (requestCode == CropImage.INSTANCE.getPICK_IMAGE_CHOOSER_REQUEST_CODE()
+    if (requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE
         && resultCode == AppCompatActivity.RESULT_OK) {
-      Uri imageUri = CropImage.INSTANCE.getPickImageResultUri(this, data);
+      Uri imageUri = CropImage.getPickImageResultUri(this, data);
 
       // For API >= 23 we need to check specifically that we have permissions to read external
       // storage,
       // but we don't know if we need to for the URI so the simplest is to try open the stream and
       // see if we get error.
       boolean requirePermissions = false;
-      if (CropImage.INSTANCE.isReadExternalStoragePermissionsRequired(this, imageUri)) {
+      if (CropImage.isReadExternalStoragePermissionsRequired(this, imageUri)) {
 
         // request permissions and handle the result in onRequestPermissionsResult()
         requirePermissions = true;
         mCropImageUri = imageUri;
         requestPermissions(
             new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},
-                CropImage.INSTANCE.getPICK_IMAGE_PERMISSIONS_REQUEST_CODE());
+                CropImage.PICK_IMAGE_PERMISSIONS_REQUEST_CODE);
       } else {
 
         mCurrentFragment.setImageUri(imageUri);
@@ -136,15 +138,15 @@ public class MainActivity extends AppCompatActivity {
   @Override
   public void onRequestPermissionsResult(
       int requestCode, String permissions[], int[] grantResults) {
-    if (requestCode == CropImage.INSTANCE.getCAMERA_CAPTURE_PERMISSIONS_REQUEST_CODE()) {
+    if (requestCode == CropImage.CAMERA_CAPTURE_PERMISSIONS_REQUEST_CODE) {
       if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-        CropImage.INSTANCE.startPickImageActivity(this);
+        CropImage.startPickImageActivity(this);
       } else {
         Toast.makeText(this, "Cancelling, required permissions are not granted", Toast.LENGTH_LONG)
             .show();
       }
     }
-    if (requestCode == CropImage.INSTANCE.getPICK_IMAGE_PERMISSIONS_REQUEST_CODE()) {
+    if (requestCode == CropImage.PICK_IMAGE_PERMISSIONS_REQUEST_CODE) {
       if (mCropImageUri != null
           && grantResults.length > 0
           && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -160,12 +162,12 @@ public class MainActivity extends AppCompatActivity {
   public void onDrawerOptionClicked(View view) {
     switch (view.getId()) {
       case R.id.drawer_option_load:
-        if (CropImage.INSTANCE.isExplicitCameraPermissionRequired(this)) {
+        if (CropImage.isExplicitCameraPermissionRequired(this)) {
           requestPermissions(
               new String[] {Manifest.permission.CAMERA},
-                  CropImage.INSTANCE.getCAMERA_CAPTURE_PERMISSIONS_REQUEST_CODE());
+                  CAMERA_CAPTURE_PERMISSIONS_REQUEST_CODE);
         } else {
-          CropImage.INSTANCE.startPickImageActivity(this);
+          CropImage.startPickImageActivity(this);
         }
         mDrawerLayout.closeDrawers();
         break;

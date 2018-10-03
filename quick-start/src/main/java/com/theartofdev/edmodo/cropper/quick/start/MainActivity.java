@@ -22,6 +22,9 @@ import android.widget.Toast;
 import net.realify.lib.androidimagecropper.CropImage;
 import net.realify.lib.androidimagecropper.CropImageView;
 
+import static net.realify.lib.androidimagecropper.CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE;
+import static net.realify.lib.androidimagecropper.CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE;
+
 public class MainActivity extends AppCompatActivity {
 
   @Override
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
   /** Start pick image activity with chooser. */
   public void onSelectImageClick(View view) {
-    CropImage.INSTANCE.activity()
+    CropImage.activity()
         .setGuidelines(CropImageView.Guidelines.ON)
         .setActivityTitle("My Crop")
         .setCropShape(CropImageView.CropShape.OVAL)
@@ -46,14 +49,14 @@ public class MainActivity extends AppCompatActivity {
   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
     // handle result of CropImageActivity
-    if (requestCode == CropImage.INSTANCE.getCROP_IMAGE_ACTIVITY_REQUEST_CODE()) {
-      CropImage.ActivityResult result = CropImage.INSTANCE.getActivityResult(data);
+    if (requestCode == CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+      CropImage.ActivityResult result = CropImage.getActivityResult(data);
       if (resultCode == RESULT_OK) {
         ((ImageView) findViewById(R.id.quick_start_cropped_image)).setImageURI(result.getUri());
         Toast.makeText(
                 this, "Cropping successful, Sample: " + result.getSampleSize(), Toast.LENGTH_LONG)
             .show();
-      } else if (resultCode == CropImage.INSTANCE.getCROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE()) {
+      } else if (resultCode == CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
         Toast.makeText(this, "Cropping failed: " + result.getError(), Toast.LENGTH_LONG).show();
       }
     }
