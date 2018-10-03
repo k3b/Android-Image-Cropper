@@ -8,8 +8,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.test.R;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
+import net.realify.lib.androidimagecropper.CropImage;
+import net.realify.lib.androidimagecropper.CropImageView;
 
 public class MainActivity extends AppCompatActivity {
 

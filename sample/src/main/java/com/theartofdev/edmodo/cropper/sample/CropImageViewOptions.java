@@ -14,7 +14,7 @@ package com.theartofdev.edmodo.cropper.sample;
 
 import android.util.Pair;
 
-import com.theartofdev.edmodo.cropper.CropImageView;
+import net.realify.lib.androidimagecropper.CropImageView;
 
 /** The crop image view options that can be changed live. */
 final class CropImageViewOptions {

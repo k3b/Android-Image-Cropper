@@ -26,8 +26,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.croppersample.R;
-import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
+import net.realify.lib.androidimagecropper.CropImage;
+import net.realify.lib.androidimagecropper.CropImageView;
 
 /** The fragment that will show the Image Cropping UI by requested preset. */
 public final class MainFragment extends Fragment
@@ -200,8 +200,8 @@ public final class MainFragment extends Fragment
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
-    if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-      CropImage.ActivityResult result = CropImage.getActivityResult(data);
+    if (requestCode == CropImage.INSTANCE.getCROP_IMAGE_ACTIVITY_REQUEST_CODE()) {
+      CropImage.ActivityResult result = CropImage.INSTANCE.getActivityResult(data);
       handleCropResult(result);
     }
   }
@@ -215,7 +215,7 @@ public final class MainFragment extends Fragment
       } else {
         CropResultActivity.mImage =
             mCropImageView.getCropShape() == CropImageView.CropShape.OVAL
-                ? CropImage.toOvalBitmap(result.getBitmap())
+                ? CropImage.INSTANCE.toOvalBitmap(result.getBitmap())
                 : result.getBitmap();
       }
       startActivity(intent);

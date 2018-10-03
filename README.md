@@ -35,7 +35,7 @@ Add this line to your Proguard config file
 
 2. Add `CropImageActivity` into your AndroidManifest.xml
  ```xml
- <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+ <activity android:name="net.realify.lib.androidimagecropper.CropImageActivity"
    android:theme="@style/Base.Theme.AppCompat"/> <!-- optional (needed if default theme has no action bar) -->
  ```
 
@@ -74,7 +74,7 @@ Add this line to your Proguard config file
 2. Add `CropImageView` into your activity
  ```xml
  <!-- Image Cropper fill the remaining available height -->
- <com.theartofdev.edmodo.cropper.CropImageView
+ <net.realify.lib.androidimagecropper.CropImageView
    xmlns:custom="http://schemas.android.com/apk/res-auto"
    android:id="@+id/cropImageView"
    android:layout_width="match_parent"

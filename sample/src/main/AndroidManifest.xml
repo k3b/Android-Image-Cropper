@@ -22,7 +22,7 @@
         </activity>
         <activity android:name="com.theartofdev.edmodo.cropper.sample.CropResultActivity">
         </activity>
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity">
+        <activity android:name="net.realify.lib.androidimagecropper.CropImageActivity">
         </activity>
 
     </application>
