@@ -200,8 +200,8 @@ public final class MainFragment extends Fragment
   @Override
   public void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
-    if (requestCode == CropImage.INSTANCE.getCROP_IMAGE_ACTIVITY_REQUEST_CODE()) {
-      CropImage.ActivityResult result = CropImage.INSTANCE.getActivityResult(data);
+    if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+      CropImage.ActivityResult result = CropImage.getActivityResult(data);
       handleCropResult(result);
     }
   }
@@ -215,7 +215,7 @@ public final class MainFragment extends Fragment
       } else {
         CropResultActivity.mImage =
             mCropImageView.getCropShape() == CropImageView.CropShape.OVAL
-                ? CropImage.INSTANCE.toOvalBitmap(result.getBitmap())
+                ? CropImage.toOvalBitmap(result.getBitmap())
                 : result.getBitmap();
       }
       startActivity(intent);

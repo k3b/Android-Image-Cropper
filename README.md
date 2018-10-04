@@ -1,13 +1,12 @@
 Android Image Cropper
 =======
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Android--Image--Cropper-green.svg?style=true)](https://android-arsenal.com/details/1/3487)
-[![Build Status](https://travis-ci.org/ArthurHub/Android-Image-Cropper.svg?branch=master)](https://travis-ci.org/ArthurHub/Android-Image-Cropper)
-[ ![Download](https://api.bintray.com/packages/arthurhub/maven/Android-Image-Cropper/images/download.svg) ](https://bintray.com/arthurhub/maven/Android-Image-Cropper/_latestVersion)
-
+[![Build Status](https://travis-ci.org/Realify/Android-Image-Cropper.svg?branch=master)](https://travis-ci.org/Realify/Android-Image-Cropper)
+[![Release](https://jitpack.io/v/Realify/Android-Image-Cropper.svg)]
+(https://jitpack.io/#Realify/Android-Image-Cropper)
 
 **Powerful** (Zoom, Rotation, Multi-Source), **customizable** (Shape, Limits, Style), **optimized** (Async, Sampling, Matrix) and **simple** image cropping library for Android.
 
-![Crop](https://github.com/ArthurHub/Android-Image-Cropper/blob/master/art/demo.gif?raw=true)
+![Crop](https://github.com/Realify/Android-Image-Cropper/blob/master/art/demo.gif?raw=true)
 
 ## Usage
 *For a working implementation, please have a look at the Sample Project*
@@ -17,7 +16,7 @@ Android Image Cropper
 1. Include the library
 
  ```
- compile 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
+ compile 'com.github.Realify.Android-Image-Cropper:1.0.1'
  ```
 
 Add permissions to manifest
@@ -107,7 +106,7 @@ Add this line to your Proguard config file
 - Set initial crop window size/location.
 - Request cropped image resize to specific size.
 - Bitmap memory optimization, OOM handling (should never occur)!
-- API Level 14.
+- API Level 21.
 - More..
  
 ## Customizations
@@ -125,28 +124,12 @@ For more information, see the [GitHub Wiki](https://github.com/ArthurHub/Android
  - [Adding auto-zoom feature to Android-Image-Cropper](https://theartofdev.com/2016/04/25/adding-auto-zoom-feature-to-android-image-cropper/)
 
 ## Change log
-*2.7.0*
-- Update gradle wrapper to 4.4
-- Update support library to 27.1.1 and set is statically! (thx @androideveloper)
-- Fix NPE in activity creation by tools (thx @unverbraucht)
-- More translations (thx @gwharvey, @dlackty, @JairoGeek, @shaymargolis)
-
-*2.6.0*
-- Update to sdk v27
-- Update to gradle v3
-
-*2.5.1*
-- Try solve manifest merger issue by adding `transitive` flag #405 (thx @j-garin)
-- Use thread pool executors for async image loading and cropping operations to prevent app hang if default executor is busy (thx @ruifcardoso)
-- Fix image rotation breaking min/max crop result restrictions #401
-- Propagate all extra data set on start crop activity intent back in crop result intent #352
-
 See [full change log](https://github.com/ArthurHub/Android-Image-Cropper/wiki/Change-Log).
 
 ## License
-Originally forked from [edmodo/cropper](https://github.com/edmodo/cropper).
+Originally forked from [arthurhub/android-image-cropper](https://github.com/arthurhub/android-image-cropper).
 
-Copyright 2016, Arthur Teplitzki, 2013, Edmodo, Inc.
+Copyright 2018 Realify, 2016, Arthur Teplitzki, 2013, Edmodo, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this work except in compliance with the   License.
 You may obtain a copy of the License in the LICENSE file, or at:
