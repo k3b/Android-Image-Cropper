@@ -1,8 +1,7 @@
 Android Image Cropper
 =======
 [![Build Status](https://travis-ci.org/Realify/Android-Image-Cropper.svg?branch=master)](https://travis-ci.org/Realify/Android-Image-Cropper)
-[![Release](https://jitpack.io/v/Realify/Android-Image-Cropper.svg)]
-(https://jitpack.io/#Realify/Android-Image-Cropper)
+[![Release](https://jitpack.io/v/Realify/Android-Image-Cropper.svg)](https://jitpack.io/#Realify/Android-Image-Cropper)
 
 **Powerful** (Zoom, Rotation, Multi-Source), **customizable** (Shape, Limits, Style), **optimized** (Async, Sampling, Matrix) and **simple** image cropping library for Android.
 
